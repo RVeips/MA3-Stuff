@@ -152,7 +152,7 @@ function draw(ctx: CanvasRenderingContext2D, data: any) {
 			ctx.strokeStyle = color_text
 			ctx.beginPath()
 			ctx.lineWidth = MIN_DIM / 16
-			ctx.lineCap = "butt";
+			ctx.lineCap = "square";
 			// draw one period of sine wave (centered)
 
 			const CX = W / 2
