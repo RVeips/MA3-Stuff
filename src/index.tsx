@@ -94,6 +94,7 @@ function draw(ctx: CanvasRenderingContext2D, data: any) {
 		ctx.rect(X0, Y0, W0, H0)
 	}
 	ctx.stroke()
+	ctx.restore()
 
 	ctx.textAlign = "center"
 	ctx.textBaseline = 'middle'
@@ -177,7 +178,6 @@ function draw(ctx: CanvasRenderingContext2D, data: any) {
 			}
 		}
 	}
-	ctx.restore()
 }
 
 const App = () => {
