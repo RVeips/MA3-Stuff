@@ -1,0 +1,10 @@
+.app-layout {
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    
+    overflow: auto;
+}

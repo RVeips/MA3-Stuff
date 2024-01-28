@@ -1,6 +1,8 @@
 import "./ColorEdit.scss"
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { HexColorPicker } from "react-colorful";
+import { TitleContainer } from "./TitleContainer";
+import { CSSProperties } from "preact/compat";
 
 function hex_color_to_rgb(hex: string) {
 	// Format: #rgb or #rrggbb
@@ -41,7 +43,8 @@ function validate(e) {
 export const ColorEdit = (props: {
 	title: string,
 	colorChanged: Function,
-	initialColor: string
+	initialColor: string,
+	style?: CSSProperties
 }) => {
 	const [color, setColor] = useState(props.initialColor);
 	const ic = hex_color_to_rgb(color);
@@ -56,8 +59,7 @@ export const ColorEdit = (props: {
 			ref_Indicator.current.style.backgroundColor = color
 	}, [ref_Indicator])
 
-	return <div className="color-editor">
-		<span className="color-title">{props.title}</span>
+	return <TitleContainer style={props.style ?? {}} title={props.title} className="color-editor">
 		<HexColorPicker color={color} onChange={c => {
 			const ic = hex_color_to_rgb(c);
 			setR(ic.r);
@@ -110,5 +112,5 @@ export const ColorEdit = (props: {
 				<label className="label-b">B</label>
 			</div>
 		</div>
-	</div>
+	</TitleContainer>
 }

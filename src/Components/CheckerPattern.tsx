@@ -1,8 +1,13 @@
-import { render } from 'preact';
+import { ComponentChildren, render } from 'preact';
 import { CSSProperties } from "preact/compat";
 import { useEffect, useRef, useState } from 'preact/hooks';
 
-export const CheckerPattern = (props: { style: CSSProperties, color_a: string, color_b: string }) => {
+export const CheckerPattern = (props: {
+    style?: CSSProperties,
+    color_a: string,
+    color_b: string,
+    children?: ComponentChildren
+}) => {
     const ref_Div = useRef<HTMLDivElement>()
 
     useEffect(() => {
@@ -18,5 +23,5 @@ export const CheckerPattern = (props: { style: CSSProperties, color_a: string, c
         d.style.background = `repeating-conic-gradient(${props.color_a} 0% 25%, ${props.color_b} 0% 50%) 50% / 2rem 2rem`
     }, [ref_Div, props.style, props.color_a, props.color_b])
 
-    return <div ref={ref_Div} className="checker-pattern" />
+    return <div ref={ref_Div} className="checker-pattern" >{props.children ?? <></>}</div>
 }

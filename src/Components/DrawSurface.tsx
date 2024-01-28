@@ -1,5 +1,6 @@
 import "./DrawSurface.scss"
 import { render } from 'preact';
+import { CSSProperties } from "preact/compat";
 import { useEffect, useRef, useState } from 'preact/hooks';
 
 export const DrawSurface = (props: {
@@ -8,6 +9,7 @@ export const DrawSurface = (props: {
     data: any,
     width: number,
     height: number,
+    style?: CSSProperties
 }) => {
     const ref_Canvas = useRef<HTMLCanvasElement>()
 
@@ -18,5 +20,5 @@ export const DrawSurface = (props: {
         props.drawFunction(ctx, props.data)
     }, [ref_Canvas, props.drawFunction, props.drawTrigger, props.width, props.height])
 
-    return <canvas ref={ref_Canvas} className="draw-surface" width={props.width} height={props.height} />
+    return <canvas style={props.style ?? {}} ref={ref_Canvas} className="draw-surface" width={props.width} height={props.height} />
 }

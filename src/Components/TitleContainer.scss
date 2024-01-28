@@ -1,0 +1,23 @@
+.cfxs-title-container {
+    position: relative;
+    outline: solid 1px #444;
+    background-color: #161616;
+
+    .title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        background-color: #444;
+    }
+    padding-top: 1.25rem;
+
+    display: flex;
+    align-items: start;
+    justify-content: start;
+}
