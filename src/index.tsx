@@ -137,7 +137,7 @@ function draw(ctx: CanvasRenderingContext2D, data: any) {
 			const SMOOTHNESS = 1
 			const NUM_POINTS = 90
 			const GAP = PERIOD / NUM_POINTS
-			const XOFF = -W / 4
+			const XOFF = -MIN_DIM / 4
 			// go back one period so the wave looks continuous
 			ctx.moveTo(XOFF + W / 2, H / 2)
 			for (let i = 0; i < NUM_POINTS * SMOOTHNESS; i++) {
@@ -157,8 +157,8 @@ function draw(ctx: CanvasRenderingContext2D, data: any) {
 
 			const CX = W / 2
 			const CY = H / 2
-			const DIMX = CX / 2
-			const DIMY = CY / 4
+			const DIMX = MIN_DIM / 2 / 2
+			const DIMY = MIN_DIM / 2 / 4
 			ctx.moveTo(CX + DIMX, CY - DIMY)
 			ctx.lineTo(CX + DIMX, CY + DIMY)
 			ctx.lineTo(CX, CY + DIMY)
@@ -305,15 +305,15 @@ const App = () => {
 						Unit Width:
 						<div className="font-sizer">
 							<button onClick={() => {
-								if (custom_unit_width.value > 1) {
-									custom_unit_width.value--
+								if (custom_unit_width.value > 0.5) {
+									custom_unit_width.value -= 0.5
 									setImageDim({ width: base_width.value * custom_unit_width.value, height: base_height.value })
 									setDrawTrigger(new Date)
 								}
 							}}><span style="width: 100%; height: 100%; font-size: 2rem; transform: translateY(-8%);">-</span></button>
 							<span>{custom_unit_width.value}</span>
 							<button onClick={() => {
-								custom_unit_width.value++
+								custom_unit_width.value += 0.5
 								setImageDim({ width: base_width.value * custom_unit_width.value, height: base_height.value })
 								setDrawTrigger(new Date)
 							}}>+</button>
