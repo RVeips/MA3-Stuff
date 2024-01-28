@@ -62,3 +62,37 @@ body {
         text-align: right;
     }
 }
+
+.cfxs-checkbox {
+    position: relative;
+    width: 10rem;
+    height: 1.5rem;
+
+    label {
+        position: absolute;
+        left: 0.25rem;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        color: #888;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        margin-left: 1.25rem;
+        user-select: none;
+    }
+
+    input {
+        transform: translateY(-2px);
+        height: 100%;
+        box-sizing: border-box;
+        width: 1rem;
+        font-size: 1rem;
+        outline: none;
+        border: solid 1px #555;
+        background-color: #222;
+        padding-left: 1.5rem;
+        padding-right: 0.25rem;
+        text-align: right;
+    }
+}
